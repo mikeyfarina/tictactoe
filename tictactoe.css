@@ -1,0 +1,36 @@
+/*
+Error: Invalid CSS after " 678 258": expected "{", was ""
+        on line 48 of tictactoe.scss
+
+43:  6 7 8
+44: 
+45:  012 036 048
+46:  345 147 246
+47:  678 258
+
+Backtrace:
+tictactoe.scss:48
+/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:1308:in `expected'
+/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:1238:in `expected'
+/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:1233:in `tok!'
+/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:688:in `block'
+/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:681:in `ruleset'
+/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:707:in `block_child'
+/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:700:in `block_contents'
+/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:137:in `stylesheet'
+/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:41:in `parse'
+/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/engine.rb:414:in `_to_tree'
+/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/exec/sass_scss.rb:387:in `run'
+/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/exec/base.rb:50:in `parse'
+/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/exec/base.rb:18:in `parse!'
+/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/bin/sass:13:in `<top (required)>'
+/Users/Mikey/.rbenv/versions/2.5.3/bin/sass:23:in `load'
+/Users/Mikey/.rbenv/versions/2.5.3/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \" 678 258\": expected \"{\", was \"\"\A         on line 48 of tictactoe.scss\A \A 43:  6 7 8\A 44: \A 45:  012 036 048\A 46:  345 147 246\A 47:  678 258"; }
