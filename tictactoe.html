@@ -7,23 +7,33 @@
 <body>
   <div class="container">
     <div class="tic-tac-toe">
-      <div class="current-player"></div>
-      <button onclick="reset()">Reset</button>
-
-      <div class="tic-tac-toe__row">
-        <span class="tic-tac-toe__row__item"></span>
-        <span class="tic-tac-toe__row__item"></span>
-        <span class="tic-tac-toe__row__item"></span>
+      <div class="title"><h1>TicTacToe</h1></div>
+      <div class="game-information">
+        <div class="current-player"></div>
+        <div class="scoreboard"></div>
       </div>
-      <div class="tic-tac-toe__row">
-        <span class="tic-tac-toe__row__item"></span>
-        <span class="tic-tac-toe__row__item"></span>
-        <span class="tic-tac-toe__row__item"></span>
+      <div class ="reset-buttons">
+        <button class="reset" onclick="reset()">RESET</button>
+        <button class="reset score-reset" onclick="scoreReset()">
+          SCORE RESET
+        </button>
       </div>
-      <div class="tic-tac-toe__row">
-        <span class="tic-tac-toe__row__item"></span>
-        <span class="tic-tac-toe__row__item"></span>
-        <span class="tic-tac-toe__row__item"></span>
+      <div class ="tic-tac-toe__board">
+        <div class="tic-tac-toe__row">
+          <span class="tic-tac-toe__row__item"></span>
+          <span class="tic-tac-toe__row__item"></span>
+          <span class="tic-tac-toe__row__item"></span>
+        </div>
+        <div class="tic-tac-toe__row">
+          <span class="tic-tac-toe__row__item"></span>
+          <span class="tic-tac-toe__row__item"></span>
+          <span class="tic-tac-toe__row__item"></span>
+        </div>
+        <div class="tic-tac-toe__row">
+          <span class="tic-tac-toe__row__item"></span>
+          <span class="tic-tac-toe__row__item"></span>
+          <span class="tic-tac-toe__row__item"></span>
+        </div>
       </div>
     </div>
   </div>

@@ -1,36 +1,130 @@
-/*
-Error: Invalid CSS after " 678 258": expected "{", was ""
-        on line 48 of tictactoe.scss
+html, body{
+  height:100%;
+  width:100%;
+  margin:0;
+}
+h1{
+  margin-top:5px;
+  margin-bottom:5px;
+}
+.title{
+  font-size: 3.8em;
+  margin-bottom:.5em;
+  width:50%;
+  color:#393F28;
+}
 
-43:  6 7 8
-44: 
-45:  012 036 048
-46:  345 147 246
-47:  678 258
+.container {
+  background: #F2F2F2;
+  height: 100vh;
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: background-color .3s ease-in-out;}
 
-Backtrace:
-tictactoe.scss:48
-/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:1308:in `expected'
-/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:1238:in `expected'
-/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:1233:in `tok!'
-/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:688:in `block'
-/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:681:in `ruleset'
-/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:707:in `block_child'
-/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:700:in `block_contents'
-/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:137:in `stylesheet'
-/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:41:in `parse'
-/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/engine.rb:414:in `_to_tree'
-/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/engine.rb:307:in `render_with_sourcemap'
-/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/exec/sass_scss.rb:387:in `run'
-/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/exec/sass_scss.rb:63:in `process_result'
-/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/exec/base.rb:50:in `parse'
-/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/exec/base.rb:18:in `parse!'
-/Users/Mikey/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/sass-3.7.2/bin/sass:13:in `<top (required)>'
-/Users/Mikey/.rbenv/versions/2.5.3/bin/sass:23:in `load'
-/Users/Mikey/.rbenv/versions/2.5.3/bin/sass:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \" 678 258\": expected \"{\", was \"\"\A         on line 48 of tictactoe.scss\A \A 43:  6 7 8\A 44: \A 45:  012 036 048\A 46:  345 147 246\A 47:  678 258"; }
+.scoreboard .winner{
+  background-color: #616B4D;
+  color:#E9E9DC;
+  transition: background-color .5s ease-in-out;}
+
+.cats-game{
+  background-color: rgb(96, 125, 139, 1);
+  transition: background-color .3s ease-in-out;
+}
+
+.cats-game .tic-tac-toe__board{
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+
+.current-player {
+  max-width: 30%;
+  margin-top: .1em;
+  margin-bottom: .9rem;
+  margin-right: 0;
+  font-size: 3rem;
+  color:#CDA450;}
+
+.scoreboard{
+  font-family:impact;
+  font-size:3rem;
+  width: 25%;
+  float:left;
+}
+
+.game-information {
+  color:#616B4D
+}
+
+.reset{
+  width: 9em;
+  height:3em;
+  background-color: lightgray;
+  font-family: georgia;
+  font-size: 1.5em;
+}
+.reset-buttons{
+  width:25%;
+  float:left;
+}
+
+.tic-tac-toe__board .game-information{
+  display:inline;
+  height:50%;
+  width:100%;
+}
+
+.tic-tac-toe {
+  max-height: 100%;
+  max-width: 100%;
+  height:100%;
+  width:90%;
+  margin: auto;}
+
+.tic-tac-toe__board{
+  float:left;
+}
+
+.tic-tac-toe__row {
+  margin-bottom: 0.5rem;
+  display: flex; }
+
+.tic-tac-toe__row__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 10em;
+  width: 175px;
+  height: 175px;
+  background: #fff;
+  padding: 0;
+  transition: background-color 1s ease-in-out;}
+
+.tic-tac-toe__row__item:not(:last-child) {
+  margin-right: 0.5rem; }
+
+.winning-block{
+  border: solid 1px #e1e1f7;
+  max-width:100%;
+  background: darkgreen;
+  color:white;
+  transition: background-color 1s ease-in-out;}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/*# sourceMappingURL=tictactoe.css.map */
