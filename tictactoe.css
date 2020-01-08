@@ -67,6 +67,7 @@ h1{
 }
 .reset-buttons{
   width:25%;
+  height: 100%;
   float:left;
 }
 
@@ -101,13 +102,14 @@ h1{
   height: 175px;
   background: #fff;
   padding: 0;
-  transition: background-color 1s ease-in-out;}
+  transition: background-color 1s ease-in-out;
+  border: solid 3px darkgray;}
 
 .tic-tac-toe__row__item:not(:last-child) {
   margin-right: 0.5rem; }
 
 .winning-block{
-  border: solid 1px #e1e1f7;
+  border: solid 3px darkseagreen;
   max-width:100%;
   background: darkgreen;
   color:white;

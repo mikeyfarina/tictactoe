@@ -42,37 +42,54 @@
  * This is how you can query for elements. document.querySelector returns a single element. Note how "current-player" has a "." before it but on the element is defined like <div class="current-player">. The period before it
  tells javascript you are querying an element by it's classname. It is identical to how you write css
  */
- const currentPlayerIndicator = document.querySelector('.current-player')
- const scoreboard = document.querySelector('.scoreboard')
- /** Update the player indicator to show the current player. */
- currentPlayerIndicator.innerText = "Player " + (currentPlayer + 1)
-scoreboard.innerText = "SCORE \n\nPLAYER 1: " + playerOneWins + "\n\nPLAYER 2: " + playerTwoWins
+const currentPlayerIndicator = document.querySelector('.current-player')
+const scoreboard = document.querySelector('.scoreboard')
+/** Update the player indicator to show the current player. */
+currentPlayerIndicator.innerText = "Player " + (currentPlayer + 1)
+scoreboard.innerHTML = `
+      SCORE:
+      <br />
+      <br />
+      PLAYER 1: ${playerOneWins}
+      <br />
+      <br />
+      PLAYER 2: ${playerTwoWins}
+    `
 // You first step is to query for all of the element (hint use document.querySelectorAll)
-let gameBlocks = document.querySelectorAll(".tic-tac-toe__row__item")
+let gameBlocks = document.querySelectorAll(".tic-tac-toe__row__item");
 let clickedBlocks = document.querySelectorAll(".clicked");
-let emptyBlocks = document.querySelectorAll(".empty")
-let container  = document.querySelector(".container")
+let emptyBlocks = document.querySelectorAll(".empty");
+let container  = document.querySelector(".container");
 
-for(let i=0; i <gameBlocks.length; i++){
-  gameBlocks[i].addEventListener("click", function(){
-    if(winner != true){
-      if(this.classList.contains("clicked")){
-        console.log("bad spot")
-      } else {
-        this.innerText = currentPlayer ==  0 ? "X" : "O"
-        this.classList.add("clicked")
-        this.classList.remove("empty")
-        showWinner()
-        winner ? currentPlayer : currentPlayer == 0 ? currentPlayer++ : currentPlayer--
-        currentPlayerIndicator.innerText = (tieGame ? "CATS GAME" : ("Player " + (currentPlayer + 1) + (winner ? " WINS!" : "")))
-        scoreboard.innerText = "SCORE \n\nPLAYER 1: " + playerOneWins
-           + "\n\nPLAYER 2: " + playerTwoWins
-      }
-    } else {
-        console.log("Tic Tac Toe")
+[].forEach.call(gameBlocks, function(block){
+  console.log(gameBlocks);
+  block.addEventListener("click", function(){
+    if(winner === true){
+      console.log("Tic Tac Toe");
+      return
     }
-  })
-}
+    if(block.classList.contains("clicked")){
+      console.log("bad spot");
+      return
+    }
+
+    block.innerText = currentPlayer ==  0 ? "X" : "O"
+    block.classList.add("clicked");
+    block.classList.remove("empty");
+    showWinner();
+    winner ? currentPlayer : currentPlayer == 0 ? currentPlayer++ : currentPlayer--
+    currentPlayerIndicator.innerText = (tieGame ? "CATS GAME" : (`Player  ${currentPlayer + 1} ${winner ? 'WINS!' : ''}`))
+    scoreboard.innerHTML = `
+      SCORE:
+      <br />
+      <br />
+      PLAYER 1: ${playerOneWins}
+      <br />
+      <br />
+      PLAYER 2: ${playerTwoWins}
+    `
+  });
+});
 
 function scoreReset(){
   playerOneWins=0
@@ -89,6 +106,7 @@ function reset(){
     el.classList.remove("clicked")
     el.classList.remove("winning-block")
     el.classList.add("empty")
+    el.innerText= ""
   })
 
   currentPlayer == 0 ? currentPlayer = 1 : currentPlayer = 0;
@@ -100,13 +118,17 @@ function reset(){
   tieGame = false
   filled = false
 
-  for(let i=0; i <gameBlocks.length; i++){
-    gameBlocks[i].innerText = ""
-  }
   currentPlayerIndicator.innerText = (tieGame ? "CATS GAME" : ("Player " + (currentPlayer + 1) +
                                       (winner ? " WINS!" : "")))
-  scoreboard.innerText = "SCORE \n\nPLAYER 1: " + playerOneWins
-                       + "\n\nPLAYER 2: " + playerTwoWins
+  scoreboard.innerHTML = `
+      SCORE:
+      <br />
+      <br />
+      PLAYER 1: ${playerOneWins}
+      <br />
+      <br />
+      PLAYER 2: ${playerTwoWins}
+    `
 }
 
 function catsGame(){
@@ -136,24 +158,41 @@ function showWinner(){
   if (diagonals){
     console.log("Slashed!\nPlayer " + (currentPlayer + 1) + " wins!!" )
     winner = true
-    currentPlayer == 1 ? playerTwoWins++ : playerOneWins++
-  } else if (rows) {
+    if (currentPlayer == 1){
+      playerTwoWins++
+    } else {
+      playerOneWins++
+    }
+  }
+
+  if (rows) {
     console.log("ROWS!!\nPlayer " + (currentPlayer + 1) + " wins!!" )
     winner = true
-    currentPlayer == 1 ? playerTwoWins++ : playerOneWins++
-  } else if (columns) {
+    if (currentPlayer == 1){
+      playerTwoWins++
+    } else {
+      playerOneWins++
+    }
+  }
+
+  if (columns) {
     console.log("Staright uP!\n Player " + (currentPlayer + 1) + " wins!!" )
     winner = true
-    currentPlayer == 1 ? playerTwoWins++ : playerOneWins++
-  } else {
+    if (currentPlayer == 1){
+      playerTwoWins++
+    } else {
+      playerOneWins++
+    }
+  }
+
+  if (!(rows || columns || diagonals)) {
     console.log("nice move")
   }
 
-  if (winner)
+  if (winner){
     container.classList.add("winner")
-
+  }
   catsGame()
-
 }
 
 function testDiag(){
@@ -180,7 +219,6 @@ function testDiag(){
 
 function testRows(){
   for(let i = 0;i <= 8;i){
-    let output
     //console.log("rows i: " + i + ", gameBlocks[i]: " + gameBlocks[i].innerText + gameBlocks[i+1].innerText + gameBlocks[i+2].innerText)
     let row = gameBlocks[i].innerText + gameBlocks[i+1].innerText + gameBlocks[i+2].innerText
     if  (row == 'XXX' || row == 'OOO' ){
