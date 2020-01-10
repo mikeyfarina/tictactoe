@@ -196,7 +196,7 @@ function showWinner() {
 
   if (winner) {
     container.classList.add("winner");
-    scoreboard.classList.add("winner")
+    scoreboard.classList.add("winner");
   }
 
   catsGame();

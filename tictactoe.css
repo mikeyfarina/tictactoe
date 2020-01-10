@@ -50,7 +50,7 @@ h1 {
   font-size: 3rem;
   width: 25%;
   float: left;
-  color:#616b4d;
+  color: #616b4d;
   transition: background-color 0.3s ease-in-out;
 }
 
@@ -66,16 +66,10 @@ h1 {
   font-size: 1.5em;
 }
 
-.reset-buttons{
-  width:25%;
+.reset-buttons {
+  width: 25%;
   height: 100%;
-  float:left;
-}
-
-.tic-tac-toe__board .game-information {
-  display: inline;
-  height: 50%;
-  width: 100%;
+  float: left;
 }
 
 .tic-tac-toe {
@@ -107,32 +101,30 @@ h1 {
   padding: 0;
   transition: background-color 1s ease-in-out;
   border: solid 3px darkgray;
-  margin-right: 0.5rem;}
+  margin-right: 0.5rem;
 }
 
 .tic-tac-toe__row__item:not(:last-child) {
   margin-right: 0.5rem;
 }
 
-.winning-block{
+.winning-block {
   border: solid 3px darkseagreen;
-  max-width:100%;
+  max-width: 100%;
   background: darkgreen;
   color: white;
   transition: background-color 1s ease-in-out;
 }
 
-.container.winner{
-  background-color: #48746E;
+.container.winner {
+  background-color: #48746e;
   transition: background-color 1s ease-in-out;
 }
 
-.scoreboard.winner{
-  color:lightgray;
+.scoreboard.winner {
+  color: lightgray;
   transition: color 1.2s ease-in-out;
 }
-
-
 
 @keyframes shake {
   0% {
