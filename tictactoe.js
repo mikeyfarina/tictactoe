@@ -27,16 +27,16 @@
  *
  */
 
- /** This is how you can keep track of the current player */
- let currentPlayer = 0
- let diagonals = false
- let rows = false
- let columns = false
- let winner = false
- let tieGame = false
- let playerOneWins = 0
- let playerTwoWins = 0
- let filled = false
+/** This is how you can keep track of the current player */
+let currentPlayer = 0;
+let diagonals = false;
+let rows = false;
+let columns = false;
+let winner = false;
+let tieGame = false;
+let playerOneWins = 0;
+let playerTwoWins = 0;
+let filled = false;
 
 /**
  * This is how you can query for elements. document.querySelector returns a single element. Note how "current-player" has a "." before it but on the element is defined like <div class="current-player">. The period before it
@@ -91,14 +91,13 @@ let container  = document.querySelector(".container");
   });
 });
 
-function scoreReset(){
-  playerOneWins=0
-  playerTwoWins=0
-  reset()
+function scoreReset() {
+  playerOneWins = 0;
+  playerTwoWins = 0;
+  reset();
 }
 
-function reset(){
-
+function reset() {
   container.classList.remove("winner");
   container.classList.remove("cats-game");
 
@@ -109,14 +108,14 @@ function reset(){
     el.innerText= ""
   })
 
-  currentPlayer == 0 ? currentPlayer = 1 : currentPlayer = 0;
+  currentPlayer == 0 ? (currentPlayer = 1) : (currentPlayer = 0);
 
   diagonals = false;
   rows = false;
   columns = false;
   winner = false;
-  tieGame = false
-  filled = false
+  tieGame = false;
+  filled = false;
 
   currentPlayerIndicator.innerText = (tieGame ? "CATS GAME" : ("Player " + (currentPlayer + 1) +
                                       (winner ? " WINS!" : "")))
@@ -131,24 +130,22 @@ function reset(){
     `
 }
 
-function catsGame(){
+function catsGame() {
   let emptyBlocks = 9;
-  [].forEach.call(gameBlocks, function(el){
-    if (el.classList.contains("clicked")){
-    emptyBlocks--
+  [].forEach.call(gameBlocks, function(el) {
+    if (el.classList.contains("clicked")) {
+      emptyBlocks--;
       if (emptyBlocks == 0) {
-        tieGame = true
-        filled = true
+        tieGame = true;
+        filled = true;
       } else {
-        filled = false
+        filled = false;
       }
     }
-  })
+  });
 
-  if (filled && !winner)
-    container.classList.add("cats-game")
+  if (filled && !winner) container.classList.add("cats-game");
 }
-
 
 function showWinner(){
   testDiag()
@@ -192,73 +189,93 @@ function showWinner(){
   if (winner){
     container.classList.add("winner")
   }
-  catsGame()
+
+  catsGame();
 }
 
-function testDiag(){
-  let downRight = gameBlocks[0].innerText != "" && gameBlocks[0].innerText == gameBlocks[4].innerText   //DOWN RIGHT \
-        && gameBlocks[0].innerText == gameBlocks[8].innerText
-  let upLeft = gameBlocks[2].innerText != "" && gameBlocks[2].innerText == gameBlocks[4].innerText     //UP LEFT /
-        && gameBlocks[2].innerText == gameBlocks[6].innerText
-  if (downRight || upLeft){
-    diagonals = true
-    console.log("three in a row diagonally.")
- }else
-   diagonals = false
+function testDiag() {
+  let downRight =
+    gameBlocks[0].innerText != "" &&
+    gameBlocks[0].innerText == gameBlocks[4].innerText && //DOWN RIGHT \
+    gameBlocks[0].innerText == gameBlocks[8].innerText;
+  let upLeft =
+    gameBlocks[2].innerText != "" &&
+    gameBlocks[2].innerText == gameBlocks[4].innerText && //UP LEFT /
+    gameBlocks[2].innerText == gameBlocks[6].innerText;
+  if (downRight || upLeft) {
+    diagonals = true;
+    console.log("three in a row diagonally.");
+  } else diagonals = false;
 
   if (upLeft) {
-      gameBlocks[2].classList.add("winning-block")
-      gameBlocks[4].classList.add("winning-block")
-      gameBlocks[6].classList.add("winning-block")
-  } else if (downRight){
-      gameBlocks[0].classList.add("winning-block")
-      gameBlocks[4].classList.add("winning-block")
-      gameBlocks[8].classList.add("winning-block")
+    gameBlocks[2].classList.add("winning-block");
+    gameBlocks[4].classList.add("winning-block");
+    gameBlocks[6].classList.add("winning-block");
+  } else if (downRight) {
+    gameBlocks[0].classList.add("winning-block");
+    gameBlocks[4].classList.add("winning-block");
+    gameBlocks[8].classList.add("winning-block");
+  }
+}
+
+catsGame(){
+  if (diagonals) {
+    console.log("Slashed!\nPlayer " + (currentPlayer + 1) + " wins!!");
+    winner = true;
+    currentPlayer == 1 ? playerTwoWins++ : playerOneWins++;
+  } else if (rows) {
+    console.log("ROWS!!\nPlayer " + (currentPlayer + 1) + " wins!!");
+    winner = true;
+    currentPlayer == 1 ? playerTwoWins++ : playerOneWins++;
+  } else if (columns) {
+    console.log("Staright uP!\n Player " + (currentPlayer + 1) + " wins!!");
+    winner = true;
+    currentPlayer == 1 ? playerTwoWins++ : playerOneWins++;
+  } else {
+    console.log("nice move");
   }
 }
 
 function testRows(){
   for(let i = 0;i <= 8;i){
     //console.log("rows i: " + i + ", gameBlocks[i]: " + gameBlocks[i].innerText + gameBlocks[i+1].innerText + gameBlocks[i+2].innerText)
-    let row = gameBlocks[i].innerText + gameBlocks[i+1].innerText + gameBlocks[i+2].innerText
-    if  (row == 'XXX' || row == 'OOO' ){
-      rows = true
-      console.log("row " + (i/3 + 1) + "output: " + row)
-      gameBlocks[i].classList.add("winning-block")
-      gameBlocks[i+1].classList.add("winning-block")
-      gameBlocks[i+2].classList.add("winning-block")
-      console.log("three in a row in row " + (i/3 + 1) +"." )
-      break
+    let row =
+      gameBlocks[i].innerText +
+      gameBlocks[i + 1].innerText +
+      gameBlocks[i + 2].innerText;
+    if (row == "XXX" || row == "OOO") {
+      rows = true;
+      console.log("row " + (i / 3 + 1) + "output: " + row);
+      gameBlocks[i].classList.add("winning-block");
+      gameBlocks[i + 1].classList.add("winning-block");
+      gameBlocks[i + 2].classList.add("winning-block");
+      console.log("three in a row in row " + (i / 3 + 1) + ".");
+      break;
     } else {
-      rows = false
+      rows = false;
     }
-    i += 3
+    i += 3;
   }
 }
 
-function testColumns(){
-  for(let i=0;i<3;i++){
-    j = i + 3
-    k = i + 6
-    column = gameBlocks[i].innerText + gameBlocks[i+3].innerText + gameBlocks[i+6].innerText
+function testColumns() {
+  for (let i = 0; i < 3; i++) {
+    j = i + 3;
+    k = i + 6;
+    column =
+      gameBlocks[i].innerText +
+      gameBlocks[i + 3].innerText +
+      gameBlocks[i + 6].innerText;
     //console.log("columns i: " + i + ", column: " + column)
-    if (column == 'XXX' || column == 'OOO'){
-      columns = true
-      gameBlocks[i].classList.add("winning-block")
-      gameBlocks[i+3].classList.add("winning-block")
-      gameBlocks[i+6].classList.add("winning-block")
-      console.log("three in a row in column " + (i+1) +"." )
-      break
+    if (column == "XXX" || column == "OOO") {
+      columns = true;
+      gameBlocks[i].classList.add("winning-block");
+      gameBlocks[i + 3].classList.add("winning-block");
+      gameBlocks[i + 6].classList.add("winning-block");
+      console.log("three in a row in column " + (i + 1) + ".");
+      break;
     } else {
-      columns = false
+      columns = false;
     }
   }
 }
-
-
-
-
-
-
-
-

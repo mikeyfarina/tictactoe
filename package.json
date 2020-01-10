@@ -1,0 +1,11 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:josephfarina/tictactoe.git",
+  "author": "Joey Farina <jrf61194@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "prettier": "^1.19.1"
+  }
+}
