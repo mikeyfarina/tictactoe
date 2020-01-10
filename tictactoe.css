@@ -26,12 +26,6 @@ h1 {
   transition: background-color 0.3s ease-in-out;
 }
 
-.scoreboard .winner {
-  background-color: #616b4d;
-  color: #e9e9dc;
-  transition: background-color 0.5s ease-in-out;
-}
-
 .cats-game {
   background-color: rgb(96, 125, 139, 1);
   transition: background-color 0.3s ease-in-out;
@@ -56,6 +50,8 @@ h1 {
   font-size: 3rem;
   width: 25%;
   float: left;
+  color:#616b4d;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .game-information {
@@ -110,7 +106,8 @@ h1 {
   background: #fff;
   padding: 0;
   transition: background-color 1s ease-in-out;
-  border: solid 3px darkgray;}
+  border: solid 3px darkgray;
+  margin-right: 0.5rem;}
 }
 
 .tic-tac-toe__row__item:not(:last-child) {
@@ -124,6 +121,18 @@ h1 {
   color: white;
   transition: background-color 1s ease-in-out;
 }
+
+.container.winner{
+  background-color: #48746E;
+  transition: background-color 1s ease-in-out;
+}
+
+.scoreboard.winner{
+  color:lightgray;
+  transition: color 1.2s ease-in-out;
+}
+
+
 
 @keyframes shake {
   0% {
